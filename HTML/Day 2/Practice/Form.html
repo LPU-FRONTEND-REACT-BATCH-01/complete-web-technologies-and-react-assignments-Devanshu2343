@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+
+
+        <label for="userName">Username:</label>
+        <input  id="userName" autocomplete="on" placeholder="userName" type="text" required name="userName" maxlength="10" minlength="5">
+        <br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password"  name="password" placeholder="password" required>
+        <br><br>
+
+        <label for="email"> Email</label>
+        <input type="email" id="email" name="email" placeholder="email" >
+        <br><br>
+
+        <label for="">Gender :</label>
+        Male<input type="radio" name="gender" value="male">
+        Female<input type="radio" name="gender" value="female">
+        <br><br>
+
+
+
+        <label for="skills">Skills : </label>
+
+                React <input checked type="checkbox" name="skills" value="React">
+                HTML <input type="checkbox" name="skills" value="HTML">
+         
+      <br>  <br>
+
+      <input type="range" min="0"  max="100">
+
+
+      <input type="time">
+      <input type="datetime-local">
+
+      <input type="file">
+
+      <select name="State" id="">
+        <option value="">--select--</option>
+        <option value="Punjab">Punjab</option>
+        <option value="Haryana">Haryana</option>
+        <option value="Rajasthan">Rajasthan</option>
+      </select>
+
+
+      <select name="city" id="">
+        <optgroup label="Punjab">
+            <option value=""> Jalandhar</option>
+            <option value="">Phagwara</option>
+        </optgroup>
+
+        <optgroup label="Haryana">
+            <option value="">Gurgaon</option>
+            <option value="">Panipat</option>
+        </optgroup>
+
+        <optgroup label="Rajasthan">
+            <option value="">Jaipur</option>
+            <option value="">Udaipur</option>
+        </optgroup>
+      </select>
+
+      <input type="text" name="Interest" value="5%" readonly>
+      <input type="text" name="Interest" value="5%" disabled>
+
+      <input type="submit" value="Submit">
+      
+               
+    </form>
+</body>
+</html>

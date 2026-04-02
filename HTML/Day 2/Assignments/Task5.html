@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" >
+        <label for="name">Name</label>
+        <br>
+        <input type="text" id="firstName" name="firstName" placeholder="First Name" required maxlength="10" minlength="4">
+        <input type="text" id="lastName " name="lastName" placeholder="Last Name" required maxlength="15" min="2">
+        <br><br>
+
+        <label for="Gender"> Gender : </label>
+        Male <input name="gender" value="male" type="radio" >
+        Female <input name="gender" value="female" type="radio" >
+        <br><br>
+
+        <label for="email"> Email</label>
+        <input type="email" required placeholder="abc@gmail.com" id="email" name="email">
+        <br><br>
+
+        <label for="roomType"> Room Type : </label>
+        <select name="ROOM Type" id="">
+        <option value="">--select--</option>
+        <option value="Single">Single</option>
+        <option value="Double">Double</option>
+        <option value="XL">XL</option>
+        </select>
+
+        <br><br>
+
+        <label for="guests"> Number of Guests :</label>
+        <input type="number" name="" id="" min="0" max="6" placeholder="0">
+
+        <br><br>
+
+        <label for="Arrival Date and Time">
+            Arrival Date and Time :
+        </label>
+        <br>
+
+        <input type="datetime-local" name="arrivalDateTime" id="arrivalDateTime">
+        <br><br>
+
+        <label for="Departure Date ">
+            Departure Date: 
+        </label>
+        <br>
+        <input type="date" name="departureDate" id="departureDate">
+        <br><br>
+
+
+        <label for="t&c">
+            <input type="checkbox" name="termsAndConditions" id="t&c" required>
+            I agree to the terms and conditions
+        </label>
+<br><br>
+        <label for="Special Requests"> Special Requests : </label>
+        <br>
+        <textarea name="specialRequests" id="specialRequests" cols="30" rows="10" placeholder="special requests"></textarea>
+        <br><br>
+        <input type="submit" value="Book Now">
+
+
+    </form>
+</body>
+</html>
