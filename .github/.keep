@@ -1,0 +1,5 @@
+git clone
+git add .
+git add fileName
+git commit -m "Message"
+git push
