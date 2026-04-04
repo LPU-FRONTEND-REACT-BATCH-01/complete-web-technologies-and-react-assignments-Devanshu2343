@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Order </title>
+</head>
+<body>
+    <form action="">
+
+        <table>
+            <tr>
+                <td><h1>Pizza Order </h1></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><h4>First Name: </h4></td>
+                <td>
+                    <label for="firstName"></label> <input type="text" id="firstName" name="firstName" required placeholder="First Name">
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><h4>Last Name:</h4></td>
+                <td>
+                    <label for="lastName"></label> <input type="text" id="lastName" name="lastName" required placeholder="Last Name">
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><h4>Email:</h4></td>
+                <td>
+                    <label for="email"></label> <input type="email" id="email" name="email" required placeholder="abc@gmail.com">
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><h4>Contact:</h4></td>
+                <td>
+                    <label for="contact"></label> <input type="number" id="contact" name="contact" required placeholder="Ex-0000000000" minlength="10" maxlength="10">
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><h4>Preferred Delivery Date:</h4></td>
+                <td>
+                    <label for="deliveryDate"></label> <input type="date" id="deliveryDate" name="deliveryDate" required>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><h4>Size:</h4></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="size">Small</label> <input type="radio" id="size" name="size" value="small">
+                    <label for="size">Medium</label> <input type="radio" id="size" name="size" value="medium">
+                    <label for="size">Large</label> <input type="radio" id="size" name="size" value="large">
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td><h4><i><mark>Outlet:</mark></i></h4></td>
+                <td>
+                    <select name="outletChoice" id="outletChoice">
+                        <option value="">Select Outlet</option>
+                         <option value="amritsar">Amritsar</option>
+                         <option value="ludhiana">Ludhiana</option>
+                         <option value="chandigarh">Chandigarh</option>
+                         <option value="jalandhar">Jalandhar</option>
+                    </select>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><h3>Menu</h3></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="./assets/p1.jfif" alt="" width="70px" height="70px">
+                </td>
+                <td><input type="checkbox" name="pizza"><h4>Hawaiian(150.00$ <strike>170.00$)</strike></h4></td>
+                <td>
+                    <select name="quantity" id="quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="./assets/p2.jfif" alt="" width="70px" height="70px">
+                </td>
+                <td><input type="checkbox" name="pizza"><h4>Pepperoni(140.00$ <strike>160.00$)</strike></h4></td>
+                <td>
+                    <select name="quantity" id="quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="./assets/p3.jfif" alt="" width="70px" height="70px">
+                </td>
+                <td><input type="checkbox" name="pizza"><h4>Vegetable(130.00$ <strike>150.00$)</strike></h4></td>
+                <td>
+                    <select name="quantity" id="quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <h3><i>Extra Details:</i></h3>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src="./assets/creditCard.png" alt="" width="30px" height="30px">
+                </td>
+                <td><b>Credit Card:</b></td>
+                <td>
+                    <input type="text" minlength="16" maxlength="16" name="creditCard" placeholder="1234-5678-1111-9012">
+                </td>
+                <td>
+                    <div style="background-color: rgb(202, 197, 197); border-radius: 2px; width: 70px; height: 25px; font-size: 14px;">Verify Card</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="./assets/mapIcon.png" alt="" width="20px" height="20px">
+                </td>
+                <td><b>Pin:</b></td>
+                <td>
+                    <input type="number" minlength="6" maxlength="6" name="pin" placeholder="124356">
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="./assets/picIcon.png" alt="" width="20px" height="20px">
+                </td>
+                <td><b><i><mark><u>Upload photo for Discount:</u></mark></i></b></td>
+                <td>
+                    <input type="file">
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="./assets/note.png" alt="" width="20px" height="20px">
+                </td>
+                <td><b><i><mark>Additional Note:</mark></i></b></td>
+                <td>
+                    <textarea name="additionalNote" id="" placeholder="If any additional requirement."></textarea>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="./assets/image.png" alt="" width="20px" height="20px">
+                </td>
+                <td>
+                    <b><i><mark>Rating:</mark></i></b>
+                </td>
+                <td>
+                    <input type="range" min="0" max="5">
+                </td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <input type="submit" name="" id="">
+                </td>
+            </tr>
+
+        </table>
+
+    </form>
+</body>
+</html>
