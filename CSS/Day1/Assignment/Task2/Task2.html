@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table , td{
+            border: 1px solid black;
+        }
+        h1 , h2 {
+            color: green
+        }
+        *
+        {
+            font-family: cursive;
+        }
+    </style>
+</head>
+<body>
+    <h1>About</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate. Voluptas, voluptate. Voluptas, voluptate. Voluptas, voluptate. Voluptas, voluptate. Voluptas, voluptate. Voluptas, voluptate. Voluptas, voluptate. Voluptas, voluptate. Voluptas, voluptate</p>
+
+    <div>
+        <h2>Our Locations</h2>
+        <ul>
+            <li>USA</li>
+            <ul >
+                <li><a href="">New York</a></li>
+                <li><a href="">Los Angeles</a></li>
+                <li><a href="">Chicago</a></li>
+                <li><a href="">San Francisco</a></li>
+            </ul>
+
+
+            <li>World</li>
+            <ul>
+                <li><a href="">Ottawa</a></li>
+                <li><a href="">Sydney</a></li>
+            </ul>
+        </ul>
+
+
+
+    </div>
+
+    <div>
+        <h2>Upcoming Classes</h2>
+        <table>
+            <tr>
+                <th> <a href="">Location</a></th>
+                <th> <a href="">Topic</a></th>
+            </tr>
+            <tr>
+                <td><a href="">New York</a></td>
+                <td><a href="">JavaScript and jQuery</a></td>
+                
+            </tr>
+            <tr>
+
+                <td><a href="">San Francisco</a></td>
+                <td><a href="">HTML and CSS</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <h2>Sign Up !!</h2>
+
+        <form action="">
+            <label for="name"> Name :: </label>
+            <input type="text" id="name" name="name">
+            <br>
+            <label for="email"> Email :: </label>
+            <input type="email" id="email" name="email">
+            <br>
+            <label for="location"> Location :: </label>
+            <select name="location" id="location">
+                <option value="newyork">New York</option>
+                <option value="sanfrancisco">San Francisco</option>
+                <option value="ottawa">Ottawa</option>
+                <option value="sydney">Sydney</option>
+            </select>
+            <br>
+            <br>
+            <label for="gender"> Gender :: </label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female"> Female </label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male"> Male </label>
+            
+            <br>
+
+            <label for="experience"> Experience :: </label>
+            <input type="text" id="experience" name="experience">
+                <br>
+                <br>   
+                
+            <input type="submit" value="Sign Up">    
+        </form>
+    </div>
+</body>
+</html>

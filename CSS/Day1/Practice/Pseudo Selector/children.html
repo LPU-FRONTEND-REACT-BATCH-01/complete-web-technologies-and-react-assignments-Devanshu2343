@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul li:last-child {
+            color: red;
+            background-color: lightgray;
+        }
+
+        ul li:nth-child(4) {
+            color: green;
+            background-color: rgb(15, 251, 102);
+        }
+
+        ul li:first-of-type {
+            color: blue;
+            background-color: lightpink;
+        }
+
+        ul h1:first-of-type {
+            color: orange;
+        }
+
+        ul p:first-of-type {
+            color: rgb(45, 23, 108);
+            border-left-color: brown;
+            border-left-style: solid;
+            border-left-width: 5px;
+        }  
+
+         ul h1:nth-of-type(2){
+            color: orange;
+        }
+        
+        ul h1:last-of-type {
+            color: purple;
+        }
+       
+        .cars li:nth-of-type(even) {
+            color: red;
+            text-decoration: underline;
+
+        }
+        
+    </style>
+</head>
+<body>
+
+    <ul>
+        <h1>List of Bikes</h1>
+        <li>Royal Enfield(IRON)</li>
+        <li>Lord Splendor</li>
+        <li>KTM</li>
+        <p>Imposter</p>
+        <li>R15</li>
+        <li>Ninja</li>
+        <li>Harley Davidson</li>
+        <li>Hyuosong</li>
+        <li>Ducati</li>
+        
+       
+    </ul>
+
+    <ul class="cars">
+         <h1>List of cars</h1>
+        <li>Audi</li>
+        <li>Tata</li>
+        <li>BMW</li>
+        <li>Alto</li>
+        </ul>
+
+</body>
+</html>
