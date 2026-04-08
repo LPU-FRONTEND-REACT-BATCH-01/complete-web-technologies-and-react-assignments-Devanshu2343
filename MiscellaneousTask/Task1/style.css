@@ -1,0 +1,26 @@
+         *{
+            background-color: rgb(249, 246, 246);
+        }
+        .image1{
+            width: 40px;
+            height: 40px;
+        }
+        nav{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+        }
+        a{
+            color: grey;
+            text-decoration: none;
+            font-size: smaller;
+        }
+
+        .headContainer{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+        }

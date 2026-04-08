@@ -7,40 +7,37 @@
 
     <style>
         .container{
+
             width: 500px ;
             height: 500px;
             background-color: bisque;
-            position: relative;
+            
             left: 200px;
             top : 200px; 
+             display: flex;
+             flex-direction: row;
+                justify-content: space-around;
+                align-items: center;    
+             
+           
         }
         .item{
             width: 100px;
             height: 100px;
             background-color: rgb(93, 56, 56);
             border: 8px solid black;
+            border-radius: 25%;
+            text-align: center;
+            line-height: 100px;
+            text-decoration: underline ;
+            font-weight: 400;
+            font-size: larger;
+           
+
                 
         }
 
-        .item1{
-            position: static;
-           
-        }
-        .item2{
-            position: static;
-         
-        }
-        .item3{
-            position: absolute;
-            left: 500px;
-            top: 500px;
-        }
-       
-        .item4{
-            position: fixed;
-            top: 0;
-            left: 0;
-        }
+        
         
     </style>
 </head>
