@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // let arr =["hi " , "hello" , "bye"] ;
+        let arr =[1,2,3,4,5]
+
+        arr.map((value , index)=>{
+            console.log(value, index);
+            console.log(value + "Mr");
+            
+            
+        });
+
+        arr.map ((value, index)=>{
+            console.log(value*2);
+            
+        })
+
+        for (let i= 0; i < arr.length; i++) {
+            console.log(arr[i] , i);
+            
+            
+        }
+
+
+        let arr1 = [12,23,45,67,78,90]
+        //reduce
+        let total = arr1.reduce((previous, current)=>{
+
+            return previous+ current ;
+        });
+
+        console.log(total);
+        
+
+        //reduce when initial value is given
+
+       
+        //reduce
+        let total1 = arr1.reduce((previous, current)=>{
+
+            return previous+ current ;
+        },10);
+
+        console.log(total1);
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
