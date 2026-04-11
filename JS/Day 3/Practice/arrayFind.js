@@ -21,7 +21,7 @@ let inputData = {
     password: "QWERTY1"
 };
 
-// Find user by username
+
 let user = users.find(ele => ele.username === inputData.userName);
 
 if (!user) {
