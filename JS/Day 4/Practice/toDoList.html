@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" >
+    <button>Add</button>
+
+
+    <ul>
+        <li >
+            Wash Clothes 
+            <button id="deleteButton"> Delete</button>
+            <button> Done</button>
+        </li>
+    </ul>
+
+    <script>
+  
+        let button = document.querySelector("button")
+        let input = document.querySelector("input")
+        let ul = document.querySelector("ul")
+        
+
+        button.addEventListener('click' , ()=>{
+            let li = document.createElement("li")
+            let inputText = input.value
+
+            li.textContent = inputText;
+            
+
+            let deleteButtons = document.createElement("button");
+            deleteButtons.textContent = "Delete"
+
+            let doneButton = document.createElement("button")
+            doneButton.textContent = "Done"
+
+        
+            li.append(deleteButtons)
+                li.append(doneButton)
+            ul.append(li)
+            
+            deleteButtons.addEventListener('click' , ()=>{
+                li.remove();
+            })
+
+            doneButton.addEventListener('click', () => {
+                li.style.textDecoration = "line-through";
+})
+
+        })
+        
+    </script>
+</body>
+</html>
+
+
+
+
