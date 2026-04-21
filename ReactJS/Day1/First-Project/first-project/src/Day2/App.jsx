@@ -171,7 +171,7 @@ import { useState } from "react";
 //   )
 // }
 
-const App = () =>{
+const Day2App = () =>{
   useEffect (()=>{
     console.log("Use effect got executed");
     
@@ -230,4 +230,4 @@ const App = () =>{
   )
 }
 
-export default App;
+export default Day2App;
