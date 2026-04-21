@@ -1,5 +1,5 @@
 {
-  "name": "vite-project",
+  "name": "my-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,9 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.2.0",
+    "@fortawesome/free-solid-svg-icons": "^7.2.0",
+    "@fortawesome/react-fontawesome": "^3.3.1",
     "axios": "^1.15.1",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
+    "react-router": "^7.14.1",
     "react-router-dom": "^7.14.1"
   },
   "devDependencies": {

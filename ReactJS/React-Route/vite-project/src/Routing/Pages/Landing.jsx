@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
+import { useNavigate } from "react-router";
 
 const Landing = () => {
-  return (
-    <div>Landing</div>
-  )
-}
+  const navigate = useNavigate();
 
-export default Landing
+  let handleClick = () => {
+    navigate("/profile");
+  };
+
+  return (
+    <div>
+      Landing
+      <button onClick={handleClick}> Click to visit Cart </button>
+    </div>
+  );
+};
+
+export default Landing;
