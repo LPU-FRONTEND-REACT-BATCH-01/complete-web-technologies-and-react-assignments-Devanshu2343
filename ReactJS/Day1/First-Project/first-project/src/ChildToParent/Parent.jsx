@@ -5,13 +5,13 @@ const Parent = () => {
   const [data, setData] = useState("");
   let handleChildData = (value) => {
     setData(value);
-    console.log();
+    console.log("This is Data Recieved ", value);
   };
   return (
     <div>
       Parent
       <h1>{data}</h1>
-      <Child fun={handleChildData} data="This is data frpm parent to child" />
+      <Child fun={handleChildData} data="This is data from parent to child" />
     </div>
   );
 };
