@@ -1,0 +1,21 @@
+.light-mode {
+  background-color: white;
+  color: black;
+  height: 100vh;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+  height: 100vh;
+}
+
+body.light {
+  background: white;
+  color: black;
+}
+
+body.dark {
+  background: black;
+  color: white;
+}
