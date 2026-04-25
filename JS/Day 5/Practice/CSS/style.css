@@ -1,0 +1,21 @@
+/* Default styles (mobile first) */
+body {
+    background-color: lightblue;
+    font-size: 14px;
+}
+
+/* For screens >= 768px (tablet and above) */
+@media (min-width: 768px) {
+    body {
+        background-color: lightgreen;
+        font-size: 16px;
+    }
+}
+
+/* For screens <= 1024px (tablet/laptop) */
+@media (max-width: 1024px) {
+    body {
+        background-color: lightcoral;
+        font-size: 18px;
+    }
+}

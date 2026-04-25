@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+nav {
+    background-color: #24272f;
+    width: 100%;
+    height: 65px;
+}
+
+.container {
+    display: flex;
+    width: inherit;
+    height: inherit;
+}
+
+.logo-version {
+    padding-left: 5px;
+    /* width: 9%; */
+    flex: 0 0 100px;
+    height: inherit;
+}
+
+.searchbar {
+    /* width: 50%; */
+    flex: 1 1 auto;
+    height: inherit;
+}
+
+.menu-items {
+    flex: 0 0 400px;
+    width: 30%;
+    height: inherit;
+    flex-shrink: 0;
+}
+
+.icons {
+    /* width: 10%; */
+    flex: 0 0 180px;
+    height: inherit;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+
+/* Logo and version */
+
+.logo-version{
+    justify-content: space-evenly;
+}
+
+.logo-version img{
+    width: 40px;
+}
+
+.logo-version p{
+    font-size: 13px;
+    color: #828999;
+    font-weight: 600;
+}
+
+/* Search Bar */
+
+
+.search-container{
+    display: flex;
+    width: 95%;
+    height: 65%;
+    border-radius: 20px;
+    background-color: #333b46;
+    justify-content: space-between;
+}
+
+.search-text{
+    padding-left: 10px;
+    display: flex;
+    color: #828999;
+    align-items: center;
+    font-size: 15px;
+    width: 90px;
+    justify-content: space-around;
+}
+
+.search-text i{
+    font-size: 15px;
+}
+
+.search-text p{
+    font-weight: 600;
+}
+
+.ctrl-k{
+    width: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.ctrl,.k{
+    background-color: #24272f;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #828999;
+    height: 25px;
+    padding: 3px 6px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-items{
+    color: white;
+    justify-content: space-evenly;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.icons{
+    justify-content: space-around;
+}
+
+
+.searchbar > i{
+    color: #828999;
+    display: none;
+}
+
+
+@media (max-width:1026px) {
+    .menu-items{
+        display: none;
+    }
+}
+
+@media (max-width:768px) {
+    .search-container{
+        display: none;
+    }
+
+    .searchbar{
+        justify-content: end;
+    }
+
+    .searchbar>i{
+        display: block;
+    }
+}

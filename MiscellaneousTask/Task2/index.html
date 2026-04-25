@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="React – The library for web and native user interfaces">
+    <title>React</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Optimistic+Display:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-wash: #23272f;
+            --bg-wash-dark: #16181d;
+            --bg-secondary: #343a46;
+            --bg-secondary-hover: #404756;
+            --text-primary: #f6f7f9;
+            --text-secondary: #ebecf0;
+            --text-tertiary: #99a1b3;
+            --react-blue: #58c4dc;
+            --react-blue-dark: #149eca;
+            --border-primary: rgba(153, 161, 179, 0.25);
+            --link-hover: #149eca;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Optimistic Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-wash);
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+            padding: 0 24px;
+            background-color: rgba(35, 39, 47, 0.85);
+            backdrop-filter: saturate(200%) blur(12px);
+            -webkit-backdrop-filter: saturate(200%) blur(12px);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--react-blue);
+        }
+
+        .nav-logo svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .nav-version {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-tertiary);
+            letter-spacing: -0.01em;
+        }
+
+        /* ===== SEARCH BAR ===== */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--bg-secondary);
+            border-radius: 100px;
+            padding: 0 14px;
+            height: 36px;
+            width: 480px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin-left: 16px;
+        }
+
+        .search-bar:hover {
+            background-color: var(--bg-secondary-hover);
+        }
+
+        .search-icon {
+            flex-shrink: 0;
+            width: 16px;
+            height: 16px;
+            color: var(--text-tertiary);
+        }
+
+        .search-placeholder {
+            flex: 1;
+            font-size: 14px;
+            color: var(--text-tertiary);
+            font-weight: 400;
+        }
+
+        .search-shortcut {
+            display: flex;
+            gap: 4px;
+        }
+
+        .search-shortcut kbd {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(22, 24, 29, 0.6);
+            color: var(--text-tertiary);
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 2px 7px;
+            border-radius: 5px;
+            min-width: 20px;
+            height: 20px;
+            line-height: 1;
+        }
+
+        /* ===== NAV RIGHT ===== */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-link {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            padding: 6px 14px;
+            border-radius: 100px;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--react-blue);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-icon-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 100px;
+            border: none;
+            background: transparent;
+            color: var(--text-tertiary);
+            cursor: pointer;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .nav-icon-btn:hover {
+            color: var(--text-primary);
+            background-color: var(--bg-secondary);
+        }
+
+        .nav-icon-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 24px 100px;
+            position: relative;
+            overflow: hidden;
+            min-height: calc(100vh - 64px);
+            background: var(--bg-wash);
+        }
+
+        /* Subtle radial glow behind hero content */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 600px;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(88, 196, 220, 0.07) 0%,
+                rgba(88, 196, 220, 0.03) 30%,
+                transparent 70%
+            );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ===== REACT LOGO (HERO) ===== */
+        .hero-logo {
+            width: 160px;
+            height: 160px;
+            margin-bottom: 20px;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-logo svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 30px rgba(88, 196, 220, 0.25));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* ===== HERO TEXT ===== */
+        .hero-title {
+            font-size: 72px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+            margin-bottom: 12px;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            max-width: 560px;
+            margin-bottom: 44px;
+            letter-spacing: -0.01em;
+        }
+
+        /* ===== HERO BUTTONS ===== */
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 17px;
+            padding: 14px 28px;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+            letter-spacing: -0.01em;
+        }
+
+        .btn-primary {
+            background-color: var(--react-blue);
+            color: var(--bg-wash);
+        }
+
+        .btn-primary:hover {
+            background-color: #6ad0e6;
+            transform: scale(1.03);
+            box-shadow: 0 4px 24px rgba(88, 196, 220, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 1.5px solid var(--border-primary);
+        }
+
+        .btn-secondary:hover {
+            border-color: rgba(153, 161, 179, 0.5);
+            background-color: rgba(255, 255, 255, 0.04);
+            transform: scale(1.03);
+        }
+
+        /* ===== SECONDARY SECTION ===== */
+        .section-secondary {
+            width: 100%;
+            background-color: var(--bg-wash);
+            position: relative;
+        }
+
+        .section-secondary-inner {
+            background-color: var(--bg-wash-dark);
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+            padding: 80px 24px 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section-heading {
+            font-size: 56px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            text-align: center;
+        }
+
+        .section-heading-muted {
+            color: var(--text-tertiary);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .search-bar {
+                width: 320px;
+            }
+        }
+
+        @media (max-width: 860px) {
+            .search-bar {
+                display: none;
+            }
+
+            .nav-right {
+                gap: 12px;
+            }
+
+            .nav-links {
+                gap: 0;
+            }
+
+            .nav-link {
+                padding: 6px 10px;
+                font-size: 14px;
+            }
+
+            .hero-title {
+                font-size: 56px;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .section-heading {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 0 16px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 20px 80px;
+            }
+
+            .hero-logo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .hero-title {
+                font-size: 44px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .section-heading {
+                font-size: 32px;
+            }
+
+            .section-secondary-inner {
+                border-top-left-radius: 24px;
+                border-top-right-radius: 24px;
+                padding: 48px 20px 80px;
+            }
+        }
+
+        /* ===== FADE-IN ANIMATION ===== */
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .fade-in-delay-1 {
+            animation-delay: 0.15s;
+        }
+
+        .fade-in-delay-2 {
+            animation-delay: 0.3s;
+        }
+
+        .fade-in-delay-3 {
+            animation-delay: 0.45s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-left">
+            <a href="#" class="nav-logo" aria-label="React Home">
+                <!-- React Logo SVG -->
+                <svg viewBox="-10.5 -9.45 21 18.9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="0" cy="0" r="2" fill="currentColor"></circle>
+                    <g stroke="currentColor" stroke-width="1" fill="none">
+                        <ellipse rx="10" ry="4.5"></ellipse>
+                        <ellipse rx="10" ry="4.5" transform="rotate(60)"></ellipse>
+                        <ellipse rx="10" ry="4.5" transform="rotate(120)"></ellipse>
+                    </g>
+                </svg>
+                <span class="nav-version">v19.2</span>
+            </a>
+            <div class="search-bar" id="search-bar" role="button" tabindex="0" aria-label="Search">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <span class="search-placeholder">Search</span>
+                <div class="search-shortcut">
+                    <kbd>⌘</kbd>
+                    <kbd>K</kbd>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="#" class="nav-link" id="nav-learn">Learn</a>
+                <a href="#" class="nav-link" id="nav-reference">Reference</a>
+                <a href="#" class="nav-link" id="nav-community">Community</a>
+                <a href="#" class="nav-link" id="nav-blog">Blog</a>
+            </div>
+            <div class="nav-actions">
+                <!-- Theme Toggle (Sun icon) -->
+                <button class="nav-icon-btn" id="theme-toggle" aria-label="Toggle theme">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <!-- Language -->
+                <button class="nav-icon-btn" id="language-toggle" aria-label="Change language">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" fill="currentColor"/>
+                    </svg>
+                </button>
+                <!-- GitHub -->
+                <a href="https://github.com/facebook/react" target="_blank" rel="noopener noreferrer" class="nav-icon-btn" id="github-link" aria-label="View on GitHub">
+                    <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <main class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-logo fade-in">
+                <svg viewBox="-10.5 -9.45 21 18.9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="0" cy="0" r="2" fill="#58c4dc"></circle>
+                    <g stroke="#58c4dc" stroke-width="1" fill="none">
+                        <ellipse rx="10" ry="4.5"></ellipse>
+                        <ellipse rx="10" ry="4.5" transform="rotate(60)"></ellipse>
+                        <ellipse rx="10" ry="4.5" transform="rotate(120)"></ellipse>
+                    </g>
+                </svg>
+            </div>
+            <h1 class="hero-title fade-in fade-in-delay-1">React</h1>
+            <p class="hero-subtitle fade-in fade-in-delay-2">The library for web and native user interfaces</p>
+            <div class="hero-buttons fade-in fade-in-delay-3">
+                <a href="#" class="btn btn-primary" id="btn-learn">Learn React</a>
+                <a href="#" class="btn btn-secondary" id="btn-api">API Reference</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== SECONDARY SECTION ===== -->
+    <section class="section-secondary" id="section-create">
+        <div class="section-secondary-inner">
+            <h2 class="section-heading">
+                Create user interfaces<br>
+                <span class="section-heading-muted">from components</span>
+            </h2>
+        </div>
+    </section>
+
+</body>
+</html>
